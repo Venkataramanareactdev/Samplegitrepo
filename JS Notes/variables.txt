@@ -1,0 +1,79 @@
+Day-1: Java-Script Basics :
+
+1. let, const, and var
+
+These are used to declare variables.
+
+let → changeable variable (block-scoped).
+
+const → fixed value (can’t be reassigned).
+
+var → old way (function-scoped, avoid in React).
+
+let age = 25;
+age = 26;   // ✅ allowed
+
+const name = "Venkat";
+// name = "Ram"; ❌ error (cannot reassign const)
+
+var city = "Chennai"; // ❌ avoid (old way)
+ 2. Data Types in JS
+
+JavaScript has primitive and reference types.
+
+Primitive types:
+
+String → "Hello"
+
+Number → 42, 3.14
+
+Boolean → true, false
+
+Null → null (intentional empty value)
+
+Undefined → variable declared but not assigned
+
+Symbol → unique identifier (rarely used in React)
+
+BigInt → very large numbers (rarely used)
+
+let str = "JavaScript";   // String
+let num = 100;            // Number
+let isReady = true;       // Boolean
+let empty = null;         // Null
+let notSet;               // Undefined
+
+Reference types:
+
+Object → { key: value }
+
+Array → [1, 2, 3]
+
+Function → function() { }
+
+3. Type Checking with typeof
+
+You can check the type of a variable using typeof.
+
+console.log(typeof "Hello");   // "string"
+console.log(typeof 100);       // "number"
+console.log(typeof true);      // "boolean"
+console.log(typeof null);      // "object" (weird quirk in JS)
+console.log(typeof undefined); // "undefined"
+
+4. Type Conversion
+
+JavaScript is flexible → sometimes it changes types automatically.
+
+Explicit conversion (manual):
+
+let strNum = "123";
+console.log(Number(strNum));   // 123 (string → number)
+console.log(String(100));      // "100" (number → string)
+console.log(Boolean(0));       // false
+console.log(Boolean(1));       // true
+
+console.log("5" + 2);   // "52" (string + number → string)
+console.log("5" - 2);   // 3   (string → number)
+console.log("5" * "2"); // 10  (both → number)
+
