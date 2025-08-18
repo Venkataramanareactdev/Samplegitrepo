@@ -61,7 +61,7 @@ console.log(typeof true);      // "boolean"
 console.log(typeof null);      // "object" (weird quirk in JS)
 console.log(typeof undefined); // "undefined"
 
-4. Type Conversion
+4. Type Conversion...
 
 JavaScript is flexible → sometimes it changes types automatically.
 
