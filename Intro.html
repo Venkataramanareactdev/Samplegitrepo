@@ -1,99 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login & Sign Up</title>
     <style>
-        body { font-family: Arial, sans-serif; background: #f4f4f4; }
-        .container { max-width: 350px; margin: 40px auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px #ccc; }
-        h2 { text-align: center; }
-        input[type="text"], input[type="password"], input[type="email"] {
-            width: 100%; padding: 8px; margin: 8px 0; border: 1px solid #ccc; border-radius: 4px;
-        }
-        button { width: 100%; padding: 10px; background: #007bff; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
-        button:hover { background: #0056b3; }
-        .error { color: red; font-size: 0.9em; margin-bottom: 8px; }
-        .switch { text-align: center; margin-top: 10px; }
-        .switch a { color: #007bff; cursor: pointer; text-decoration: underline; }
+      body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+      }
+      .container {
+        max-width: 350px;
+        margin: 40px auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px #ccc;
+      }
+      h2 {
+        text-align: center;
+      }
+      input[type="text"],
+      input[type="password"],
+      input[type="email"] {
+        width: 100%;
+        padding: 8px;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      button {
+        width: 100%;
+        padding: 10px;
+        background: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #0056b3;
+      }
+      .error {
+        color: red;
+        font-size: 0.9em;
+        margin-bottom: 8px;
+      }
+      .switch {
+        text-align: center;
+        margin-top: 10px;
+      }
+      .switch a {
+        color: #007bff;
+        cursor: pointer;
+        text-decoration: underline;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container" id="loginForm">
-        <h2>Login</h2>
-        <div class="error" id="loginError"></div>
-        <input type="text" id="loginUsername" placeholder="Username" required>
-        <input type="password" id="loginPassword" placeholder="Password" required>
-        <button onclick="validateLogin()">Login</button>
-        <div class="switch">Don't have an account? <a onclick="showSignUp()">Sign Up</a></div>
+      <h2>Login</h2>
+      <div class="error" id="loginError"></div>
+      <input type="text" id="loginUsername" placeholder="Username" required />
+      <input
+        type="password"
+        id="loginPassword"
+        placeholder="Password"
+        required
+      />
+      <button onclick="validateLogin()">Login</button>
+      <div class="switch">
+        Don't have an account? <a onclick="showSignUp()">Sign Up</a>
+      </div>
     </div>
 
-    <div class="container" id="signUpForm" style="display:none;">
-        <h2>Sign Up</h2>
-        <div class="error" id="signUpError"></div>
-        <input type="text" id="signUpUsername" placeholder="Username" required>
-        <input type="email" id="signUpEmail" placeholder="Email" required>
-        <input type="password" id="signUpPassword" placeholder="Password" required>
-        <input type="password" id="signUpConfirm" placeholder="Confirm Password" required>
-        <button onclick="validateSignUp()">Sign Up</button>
-        <div class="switch">Already have an account? <a onclick="showLogin()">Login</a></div>
+    <div class="container" id="signUpForm" style="display: none">
+      <h2>Sign Up</h2>
+      <div class="error" id="signUpError"></div>
+      <input type="text" id="signUpUsername" placeholder="Username" required />
+      <input type="email" id="signUpEmail" placeholder="Email" required />
+      <input
+        type="password"
+        id="signUpPassword"
+        placeholder="Password"
+        required
+      />
+      <input
+        type="password"
+        id="signUpConfirm"
+        placeholder="Confirm Password"
+        required
+      />
+      <button onclick="validateSignUp()">Sign Up</button>
+      <div class="switch">
+        Already have an account? <a onclick="showLogin()">Login</a>
+      </div>
     </div>
 
     <script>
-        function showSignUp() {
-            document.getElementById('loginForm').style.display = 'none';
-            document.getElementById('signUpForm').style.display = 'block';
-        }
-        function showLogin() {
-            document.getElementById('signUpForm').style.display = 'none';
-            document.getElementById('loginForm').style.display = 'block';
-        }
+      function showSignUp() {
+        document.getElementById("loginForm").style.display = "none";
+        document.getElementById("signUpForm").style.display = "block";
+      }
+      function showLogin() {
+        document.getElementById("signUpForm").style.display = "none";
+        document.getElementById("loginForm").style.display = "block";
+      }
 
-        function validateLogin() {
-            const username = document.getElementById('loginUsername').value.trim();
-            const password = document.getElementById('loginPassword').value;
-            const error = document.getElementById('loginError');
-            error.textContent = '';
+      function validateLogin() {
+        const username = document.getElementById("loginUsername").value.trim();
+        const password = document.getElementById("loginPassword").value;
+        const error = document.getElementById("loginError");
+        error.textContent = "";
 
-            if (!username || !password) {
-                error.textContent = 'Please enter both username and password.';
-                return;
-            }
-            // Demo validation: username must be "user", password "pass"
-            if (username === 'user' && password === 'pass') {
-                alert('Login successful!');
-            } else {
-                error.textContent = 'Invalid username or password.';
-            }
+        if (!username || !password) {
+          error.textContent = "Please enter both username and password.";
+          return;
         }
-
-        function validateSignUp() {
-            const username = document.getElementById('signUpUsername').value.trim();
-            const email = document.getElementById('signUpEmail').value.trim();
-            const password = document.getElementById('signUpPassword').value;
-            const confirm = document.getElementById('signUpConfirm').value;
-            const error = document.getElementById('signUpError');
-            error.textContent = '';
-
-            if (!username || !email || !password || !confirm) {
-                error.textContent = 'All fields are required.';
-                return;
-            }
-            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                error.textContent = 'Invalid email format.';
-                return;
-            }
-            if (password.length < 6) {
-                error.textContent = 'Password must be at least 6 characters.';
-                return;
-            }
-            if (password !== confirm) {
-                error.textContent = 'Passwords do not match.';
-                return;
-            }
-            alert('Sign up successful!');
-            showLogin();
+        // Demo validation: username must be "user", password "pass"
+        if (username === "user" && password === "pass") {
+          alert("Login successful!");
+        } else {
+          error.textContent = "Invalid username or password.";
         }
+      }
+
+      function validateSignUp() {
+        const username = document.getElementById("signUpUsername").value.trim();
+        const email = document.getElementById("signUpEmail").value.trim();
+        const password = document.getElementById("signUpPassword").value;
+        const confirm = document.getElementById("signUpConfirm").value;
+        const error = document.getElementById("signUpError");
+        error.textContent = "";
+
+        if (!username || !email || !password || !confirm) {
+          error.textContent = "All fields are required.";
+          return;
+        }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          error.textContent = "Invalid email format.";
+          return;
+        }
+        if (password.length < 6) {
+          error.textContent = "Password must be at least 6 characters.";
+          return;
+        }
+        if (password !== confirm) {
+          error.textContent = "Passwords do not match.";
+          return;
+        }
+        alert("Sign up successful!");
+        showLogin();
+      }
     </script>
-</body>
+  </body>
 </html>
